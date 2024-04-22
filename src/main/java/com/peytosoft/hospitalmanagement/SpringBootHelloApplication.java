@@ -1,4 +1,4 @@
-package com.peytosoft.springboothello;
+package com.peytosoft.hospitalmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

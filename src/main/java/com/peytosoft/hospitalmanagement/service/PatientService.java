@@ -1,12 +1,14 @@
-package com.peytosoft.springboothello.service;
+package com.peytosoft.hospitalmanagement.service;
 
 
-import com.peytosoft.springboothello.dao.PatientDAO;
-import com.peytosoft.springboothello.entities.Patient;
-import com.peytosoft.springboothello.test.Test;
+import com.peytosoft.hospitalmanagement.dao.PatientDAO;
+import com.peytosoft.hospitalmanagement.entities.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -15,17 +17,22 @@ public class PatientService {
 
     @Autowired
     PatientDAO patientDAO;
-    public List<Patient> getAllPatients() {
-        return patientDAO.findAll();
+    public ResponseEntity<List<Patient>>  getAllPatients() {
+        try {
+            return new ResponseEntity<> ( patientDAO.findAll(), HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<> (new ArrayList<>(), HttpStatus.BAD_REQUEST);
     }
 //
 //    public List<Patient> getPatientByCategory(String cat) {
 //        return patientDAO.findByCategory(cat);
 //    }
 //
-    public String addPatient(Patient patient) {
+    public ResponseEntity<String> addPatient(Patient patient) {
         patientDAO.save(patient);
-        return "success";
+        return new ResponseEntity<>("success", HttpStatus.CREATED);
     }
 
     //test app

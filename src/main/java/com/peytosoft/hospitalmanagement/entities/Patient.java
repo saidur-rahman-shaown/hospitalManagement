@@ -1,4 +1,4 @@
-package com.peytosoft.springboothello.entities;
+package com.peytosoft.hospitalmanagement.entities;
 
 import jakarta.persistence.*;
 
@@ -42,6 +42,7 @@ public class Patient {
     }
 
     public int getPatientID() {
+
         return patientID;
     }
 

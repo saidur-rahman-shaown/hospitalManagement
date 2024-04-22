@@ -1,6 +1,6 @@
-package com.peytosoft.springboothello.dao;
+package com.peytosoft.hospitalmanagement.dao;
 
-import com.peytosoft.springboothello.entities.Patient;
+import com.peytosoft.hospitalmanagement.entities.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

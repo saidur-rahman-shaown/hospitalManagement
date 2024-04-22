@@ -1,6 +1,6 @@
-package com.peytosoft.springboothello.test;
+package com.peytosoft.hospitalmanagement.test;
 
-import com.peytosoft.springboothello.entities.Patient;
+import com.peytosoft.hospitalmanagement.entities.Patient;
 
 import java.util.GregorianCalendar;
 

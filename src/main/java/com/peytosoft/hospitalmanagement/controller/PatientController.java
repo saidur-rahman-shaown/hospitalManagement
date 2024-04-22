@@ -1,9 +1,10 @@
-package com.peytosoft.springboothello.controller;
+package com.peytosoft.hospitalmanagement.controller;
 
 
-import com.peytosoft.springboothello.entities.Patient;
-import com.peytosoft.springboothello.service.PatientService;
+import com.peytosoft.hospitalmanagement.entities.Patient;
+import com.peytosoft.hospitalmanagement.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +16,13 @@ public class PatientController {
     @Autowired
     PatientService patientService;
 
+    @GetMapping("")
+    public String home() {
+        return "index";
+    }
+
     @GetMapping("allPatients")
-    public List<Patient> getAllPatients() {
+    public ResponseEntity< List<Patient>> getAllPatients() {
         return patientService.getAllPatients();
 
     }
@@ -26,8 +32,10 @@ public class PatientController {
 //        return patientService.getPatientByCategory(cat);
 //    }
 //
+
+    // rest add
     @PostMapping("add")
-    public String addPatient(@RequestBody Patient patient) {
+    public ResponseEntity<String> addPatient(@RequestBody Patient patient) {
        return patientService.addPatient(patient);
     }
 
